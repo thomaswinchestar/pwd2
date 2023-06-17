@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OOP JS</title>
+</head>
+<body>
+<script>
+    let honda = {
+        color: "Red",
+        drive: function (){
+            console.log(`${this.color} Honda is driving.`)
+        }
+    }
+    honda.drive();
+
+    class Car {
+        color = "Black";
+        constructor(name) {
+            this.name = name;
+        }
+        drive(){
+            console.log(`${this.color} ${this.name} is driving`);
+        }
+    }
+
+    class Nissan extends Car {
+        wheels = 5;
+    }
+
+    let car = new Nissan("Nissan");
+    car.drive();
+</script>
+</body>
+</html>

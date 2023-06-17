@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Slider</title>
+    <style>
+      .wrap {
+        position: relative;
+        width: 1000px;
+        margin: 20px auto;
+      }
+      .wrap button {
+        border: 0 none;
+        background: transparent;
+        font-size: 1.8em;
+        position: absolute;
+        top: 40%;
+      }
+      #prev{
+        left: 20px;
+      }
+      #next{
+        right: 20px;
+      }
+
+      .box {
+        height: 200px;
+        line-height: 200px;
+        font-size: 2em;
+        text-align: center;
+      }
+
+      #box1 {
+        background: teal;
+      }
+
+      #box2 {
+        background: purple;
+        display: none;
+      }
+
+      #box3 {
+        background: orange;
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <button id="prev">&laquo</button>
+      <button id="next">&raquo</button>
+      <div class="box" id="box1">1</div>
+      <div class="box" id="box2">2</div>
+      <div class="box" id="box3">3</div>
+    </div>
+
+    <script>
+      document.querySelector("#next").onclick = next;
+      document.querySelector("#prev").onclick = prev;
+
+      setInterval(next, 3000);
+
+      let box = 1;
+
+      function next(){
+        document.querySelector("#box" + box).style.display = "none";
+        box++; if(box > 3) box = 1;
+        document.querySelector("#box" + box).style.display = "block";
+      }
+
+      function prev(){
+        document.querySelector("#box" + box).style.display = "none";
+        box--; if(box < 1 ) box = 3;
+        document.querySelector("#box" + box).style.display = "block";
+      }
+
+      // let dog = {
+      //   name: 'Bobby',
+      //   run: function (){
+      //     console.log(`${this.name} is running`);
+      //   }
+      // }
+
+      // let users = [
+      //   { name : 'Bob', age: 22, gender: "m"},
+      //   { name : 'Alice', age: 34, gender: "f"},
+      //   { name : 'Mary', age: 21, gender: "f"},
+      //   { name : 'Tom', age: 25, gender: "m"},
+      // ];
+      // users.map( u => u.name);
+      // users.filter(u => u.gender === "f");
+      // users.filter(u => u.gender === "f").map(u => u.name);
+
+    </script>
+  </body>
+</html>
